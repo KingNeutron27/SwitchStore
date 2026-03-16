@@ -60,7 +60,6 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
-  /* CRITICAL FIX: Use overflow-x: clip to prevent scroll but allow dropdowns */
   overflow-x: clip;
   position: relative;
   width: 100%;
