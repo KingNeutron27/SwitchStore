@@ -1,8 +1,13 @@
+import Carousel from "./components/Carousel"
+import Footer from "./components/Footer"
 
 
 function App() {
   return (
-    <div>App</div>
+    <>
+      <Carousel />
+      <Footer />
+    </>
   )
 }
 
