@@ -1,49 +1,78 @@
-.search-form{
+.search-form {
   position: relative;
   display: flex;
   align-items: center;
-  /* width: 40px; */
+  width: 40px;
+  overflow: hidden;
   transition: width 0.3s ease;
 }
-/* .search-form.open{
-  width: 220px;
-} */
 
-.search-btn{
+.search-form.open {
+  width: 220px;
+  overflow: visible;
+  /* allow the shadow to show */
+}
+
+.search-btn {
+  flex-shrink: 0;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: none;
-  background: var(--bg-secondary);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--bg-primary);
   z-index: 2;
-   transition: transform 0.2s ease;
-}
-.search-btn:hover{
-  transform: scale(1.05);
+  transition: background 0.2s ease, transform 0.35s ease;
 }
 
-.search-input{
+.search-btn:hover {
+  background: #f8f4ff;
+}
+
+.search-form.open .search-btn {
   position: absolute;
-  right: 0;
-  width: 0;
-  opacity: 0;
+  right: 5px;
+  background: transparent;
+  transform: rotate(90deg);
+  /* rotates the icon when open */
+}
+
+.search-input {
+  width: 180px;
   height: 40px;
+  opacity: 0;
   border-radius: 20px;
   border: 1px solid var(--border-color);
-  padding: 0 15px;
+  padding: 0 45px 0 15px;
+  /* right padding so text doesn't go under the button */
   outline: none;
-  transition: all 0.35s ease;
   background: white;
-  z-index: 3;
+  z-index: 1;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transform: translateX(20px) scale(0.95);
+  transition: all 0.35s ease;
 }
 
-
-.search-form.open .search-input{
-  width: 180px;
+.search-form.open .search-input {
+  width: 100%;
   opacity: 1;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transform: translateX(0) scale(1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .search-form {
+    width: 36px;
+  }
+
+  .search-form.open {
+    width: 160px;
+  }
+
+  .search-input {
+    height: 36px;
+  }
 }
