@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import navImg from "../../assets/CreativeStore.png";
+import navImg from "../../assets/images/CreativeStore.png";
 import { useState } from "react";
 import Search from "../Search/Search";
 
