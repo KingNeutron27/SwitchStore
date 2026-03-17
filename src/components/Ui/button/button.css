@@ -3,7 +3,7 @@
   --btn-bg: var(--primary-main);
   --btn-text: #fff;
   --btn-border: transparent;
-  width: 90%;
+  width: 95%;
   margin-top: auto;
   padding: .85rem 1.25rem;
   background: linear-gradient(135deg, var(--primary-main), var(--accent-purple));

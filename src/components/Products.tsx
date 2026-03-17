@@ -5,6 +5,7 @@ import ProductCard from "./Ui/productCard/ProductCard"
 import '../components/Ui/productCard/productCard.css'
 import Button from "./Ui/button/Button"
 import Category from "./Category/Category"
+import ProductCardSkeleton from "../components/Ui/productCard/productSkeleton"
 
 const categoryMap: Record<string, string> = {
   Clothes: "womens-dresses",
@@ -60,13 +61,17 @@ export default function Products() {
         </div>
 
         {loading ? (
-          <p>Loading...</p>
-        ) : products.length === 0 ? (
+  <div className="product-container">
+    {Array.from({ length: 8 }).map((_, i) => (
+      <ProductCardSkeleton key={i} />
+    ))}
+  </div>
+) : products.length === 0 ? ( 
           <p>No products found.</p>
         ) : (
           <div className="product-container">
             {products.map((product) => (
-              <div key={product.id}>
+              <div key={product.id} >
                 <ProductCard product={product} />
               </div>
             ))}
@@ -74,7 +79,7 @@ export default function Products() {
         )}
 
         <div className="product-button">
-          <Button text="View All Products →" style={{ width: "20%" }} />
+          <Button text="View All Products →" style={{ width: "clamp(120px, 30%, 260px)" }} onClick={() => products} />
         </div>
       </section>
     </>
