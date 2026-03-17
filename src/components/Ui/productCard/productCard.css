@@ -1,0 +1,217 @@
+.product-section{
+    background: var(--bg-primary);
+    padding: 10px 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+.product-header{
+    margin-bottom: 2.5rem;
+}
+.product-header h2{
+    font-size: clamp(1.8rem, 1.5vw, 2.5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: .75rem;
+    
+}
+
+.product-header h2::after {
+  content: "";
+  display: block;
+  width: 170px;
+  height: 3px;
+  background: var(--text-muted);
+  margin-top: 4px;
+}
+
+.category-header{
+    margin-bottom: 2.5rem;
+}
+.category-header h2{
+    font-size: clamp(1.8rem, 1.5vw, 2.5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: .75rem;
+}
+.category-header h2::after{
+    content: "";
+  display: block;
+  width: 100px;
+  height: 3px;
+  background: var(--text-muted);
+  margin-top: 4px;
+}
+.product-category{
+    margin: 50px 0;
+    background: var(--bg-primary);
+    padding: 10px 30px;
+}
+/* ── Grid ── */
+.product-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ── Card ── */
+.product-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-md, 0 4px 20px rgba(0, 0, 0, 0.1));
+  transform: translateY(-2px);
+}
+
+/* ── Media ── */
+.product-media {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--bg-secondary), var(--accent-lavender));
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.product-media:hover .product-img {
+  transform: scale(1.08);
+}
+
+.product-img.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  height: 220px;
+}
+
+/* ── Content ── */
+.product-content {
+  padding: 1.25rem;
+  padding-bottom: 0.5rem;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.product-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  /* font-family: var(--text-tertiary)! */
+}
+
+.product-price {
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.product-price strong {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background: none;
+  -webkit-text-fill-color: var(--text-secondary);
+  font-weight: 600;
+  margin-right: 0.25rem;
+}
+
+/* ── Rating ── */
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  flex-wrap: wrap;
+  min-height: 1.5rem;
+}
+
+.review-count{
+  color: #007185;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+/* ── Stars ── */
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5px;
+
+}
+
+.star {
+  font-size: 23px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  line-height: 1;
+}
+
+.star.filled {
+  color: #88319a;
+}
+
+.star.half {
+  color: #88319a;
+}
+
+.star.empty {
+  color: #4A5568;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
+/* ── Card Footer ── */
+.product-button {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+/* ── Responsive ── */
+@media (min-width: 480px) {
+  .product-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .product-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
