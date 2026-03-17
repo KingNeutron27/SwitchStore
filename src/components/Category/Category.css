@@ -49,7 +49,7 @@
 }
 
 .category__card.active .category__image {
-  border-color: var(--accent-coral);
+  border-color: var(--primary-main);
 }
 
 .category__card.active .category__name {
