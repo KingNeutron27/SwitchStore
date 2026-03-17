@@ -1,18 +1,18 @@
-import Carousel from "./components/Carousel"
-import Footer from "./components/Footer"
-import Products from "./components/Products"
-
+import Carousel from "./components/Carousel";
+import Footer from "./components/Footer";
+import Products from "./components/Products";
 
 function App() {
   return (
     <>
-    <>
-      <Carousel />
-      <Footer />
+      <>
+        <Carousel />
+        <Products />
+
+        <Footer />
+      </>
     </>
-    <Products />
-    </>
-  )
+  );
 }
 
-export default App
+export default App;
