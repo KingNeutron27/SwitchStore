@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../styles/Carousel.css'
 import banner1 from '../assets/images/banner1.png'
 import banner2 from '../assets/images/banner2.jpg'
@@ -37,28 +37,39 @@ const universalBanner: CarouselProps[] = [
   },
 ]
 
-console.log(banner1, banner2, banner3)
 
 function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
-  const handleNext = () => {
-    setCurrentIndex(prev => (prev + 1) % universalBanner.length)
+  const goTo = (index: number) => {
+    setIsTransitioning(true)
+    setTimeout(() => {
+      setCurrentIndex(index)
+      setIsTransitioning(false)
+    }, 400)
   }
 
-  const handlePrev = () => {
-    setCurrentIndex( prev => prev === 0 
-      ? universalBanner.length - 1
-      : prev - 1)
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % universalBanner.length)
+    }, 5000)
+  
+    return () => clearInterval(interval)
+  }, [])
+
+
+  const handleNext = () => goTo((currentIndex + 1) % universalBanner.length)
+  const handlePrev = () => goTo(currentIndex === 0 ? universalBanner.length - 1 : currentIndex - 1)
 
   const currentBanner = universalBanner[currentIndex]
   return (
     <div className="carousel-container">
       <div 
-        className="carousel-background" 
-        style={{backgroundImage: `url(${currentBanner.image})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        className={`carousel-background ${isTransitioning ? 'carousel-bg-fade' : ''}`}
+        style={{backgroundImage: `url(${currentBanner.image})`}}>
       </div>
+
       {/* Gradient-overlay  */}
       <div className="carousel-overlay" />
 
