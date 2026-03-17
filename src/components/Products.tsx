@@ -4,6 +4,7 @@ import { fetchProducts } from "../../services/ProductService"
 import ProductCard from "./Ui/productCard/ProductCard"
 import '../components/Ui/productCard/productCard.css'
 import Button from "./Ui/button/Button"
+import Category from "./Category/Category"
 
 
 export default function Products() {
@@ -21,6 +22,11 @@ export default function Products() {
   }, []);
 
     return(
+        <>
+        <div className="product-category">
+            <Category onSelectCategory={setSelectedCategory} />
+        </div>
+        
         <section className="product-section">
             <div className="product-header">
                 <h2>Deals of The Day</h2>
@@ -44,6 +50,8 @@ export default function Products() {
             
         
         </section>
+
+        </>
         
     )
 }

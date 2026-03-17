@@ -5,13 +5,15 @@ import Products from "./components/Products"
 
 function App() {
   return (
-    <>
+  
     <>
       <Carousel />
+      
+      <Products />
       <Footer />
+       
     </>
-    <Products />
-    </>
+   
   )
 }
 
