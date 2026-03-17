@@ -1,7 +1,6 @@
-import Carousel from "./components/Carousel"
-import Footer from "./components/Footer"
-import Products from "./components/Products"
-
+import Carousel from "./components/Carousel";
+import Footer from "./components/Footer";
+import Products from "./components/Products";
 
 function App() {
   return (
@@ -17,4 +16,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
