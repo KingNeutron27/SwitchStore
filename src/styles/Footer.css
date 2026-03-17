@@ -1,0 +1,291 @@
+.footer {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-main) 50%, var(--accent-purple) 100%);
+  color: var(--text-light);
+  padding: 4rem 2rem 2rem;
+  margin-top: 6rem;
+  position: relative;
+  overflow: hidden;
+  border-top: 4px solid var(--primary-light);
+  box-shadow: 0 -8px 30px rgba(108, 91, 123, 0.25);
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(circle at 30% 80%, rgba(155, 135, 171, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-section h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--accent-lavender);
+  position: relative;
+  padding-bottom: 0.75rem;
+  font-family: var(--font-secondary);
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-light), var(--accent-lavender));
+  border-radius: 2px;
+}
+
+/* About Text */
+.footer-section.about p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 420px;
+}
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.98rem;
+  color: rgba(255, 255, 255, 0.9);
+  transition: var(--transition);
+}
+
+.contact-item:hover {
+  color: var(--accent-lavender);
+  transform: translateX(6px);
+}
+
+.contact-icon {
+  font-size: 1.3rem !important;
+  color: var(--accent-lavender);
+  flex-shrink: 0;
+}
+
+/* Social Links */
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  /* Add these to ensure perfect centering */
+  padding: 0;
+  line-height: 0;
+}
+
+.social-links a:hover {
+  transform: translateY(-4px) scale(1.08);
+  background: var(--primary-light);
+  box-shadow: 0 8px 20px rgba(107, 91, 123, 0.35);
+  border-color: var(--accent-lavender);
+}
+
+.social-icon {
+  font-size: 1.6rem;
+  color: var(--text-light);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.social-links a:hover .social-icon {
+  color: white;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-bottom p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.heart-icon {
+  color: #FF6B6B;
+  animation: heartbeat 2.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-section.contact {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  .footer-section h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .contact-info {
+    align-items: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .social-links {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+
+  .footer {
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .footer-section {
+    align-items: center;
+  }
+
+  .footer-section.about p {
+    max-width: 100%;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2.5rem 1rem 1.5rem;
+  }
+
+  .social-links {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .footer-section h3 {
+    font-size: 1.25rem;
+  }
+
+  .social-links a {
+    width: 48px;
+    height: 48px;
+  }
+
+  .social-icon {
+    font-size: 1.4rem !important;
+  }
+
+  .contact-item {
+    font-size: 0.95rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.88rem;
+  }
+}
+
+
+/* Read-only email input styling */
+.input-group input[readonly] {
+  background-color: var(--bg-purple-light);
+  border-color: var(--border-color);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.input-group input[readonly]:focus {
+  border-color: var(--border-color);
+  box-shadow: none;
+  transform: none;
+  outline: none;
+}
+
+/* Add a lock icon to indicate it's read-only */
+.email-readonly-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.email-readonly-wrapper .lock-icon {
+  position: absolute;
+  right: 16px;
+  color: var(--primary-main);
+  opacity: 0.7;
+  pointer-events: none;
+}

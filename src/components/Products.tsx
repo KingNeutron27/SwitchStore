@@ -7,17 +7,18 @@ import Button from "./Ui/button/Button"
 
 
 export default function Products() {
+  const [products, setProducts] = useState<ProductType[]>([]);
+    const [selectedCategory, setSelectedCategory] = useState("all");
 
-    const [products, setProducts] = useState<ProductType[]>([])
 
-    useEffect(() => {
-        async function fetchProduct() {
-            const data = await fetchProducts();
-            setProducts(data)
-        }
+  useEffect(() => {
+    async function fetchProduct() {
+      const data = await fetchProducts();
+      setProducts(data);
+    }
 
-        fetchProduct()
-    }, [])
+    fetchProduct();
+  }, []);
 
     return(
         <section className="product-section">
