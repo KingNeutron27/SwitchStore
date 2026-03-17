@@ -79,7 +79,7 @@ export default function Products() {
         )}
 
         <div className="product-button">
-          <Button text="View All Products →" style={{ width: "clamp(120px, 30%, 260px)" }} onClick={() => products} />
+          <Button text="View All Products →" style={{ width: "clamp(120px, 30%, 260px)", cursor: 'pointer' }} onClick={() => products} />
         </div>
       </section>
     </>
