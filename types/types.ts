@@ -1,14 +1,13 @@
+export interface Reviews {
+  rating: number;
+}
 
 export interface ProductType {
-    id: number,
-    images: string,
-    title: string,
-    description: string,
-    ratings: Reviews[],
-    price: number
-    category: string,
-
-}
-export interface Reviews {
-    rating: number
+  id: number;
+  images: string[];      
+  title: string;
+  description: string;
+  reviews: Reviews[];   
+  price: number;
+  category: string;
 }

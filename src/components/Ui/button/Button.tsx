@@ -1,4 +1,4 @@
-import '../../styles/button.css'
+import './button.css'
 
 type ButtonVariant = "primary" | "secondary" | "danger" | "outline";
 type ButtonSize = "sm" | "md" | "lg";
