@@ -43,12 +43,20 @@ export default function Products() {
   return (
     <>
       <div className="product-category">
+        <div className="category-header">
+            <h2>Category</h2>
+        </div>
+
         <Category onSelectCategory={setSelectedCategory} />
       </div>
 
       <section className="product-section">
         <div className="product-header">
-          <h2>Deals of The Day</h2>
+            {(selectedCategory === "all") ?
+                <h2>Deals of The Day</h2>
+                  : 
+                <h2> Deals for {selectedCategory}</h2>
+            }
         </div>
 
         {loading ? (

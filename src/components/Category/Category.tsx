@@ -10,6 +10,7 @@ import sports from "../../assets/sports.webp";
 import "../Category/Category.css";
 
 const allCategories = [
+  { id: 0, name: "All", image: null },
   { id: 1, name: "Clothes", image: clothes },
   { id: 2, name: "Watches", image: watches },
   { id: 3, name: "Bags", image: bags },
@@ -24,11 +25,11 @@ interface CategoryProps {
 }
 
 const Category = ({ onSelectCategory }: CategoryProps) => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const handleClick = (name: string) => {
-    setSelectedCategory((prev) => (prev === name ? "all" : name));
-    onSelectCategory(name)
+    setSelectedCategory(name);
+    onSelectCategory(name === "All" ? "all" : name);
   };
 
   return (
@@ -37,11 +38,15 @@ const Category = ({ onSelectCategory }: CategoryProps) => {
         {allCategories.map((category) => (
           <div
             key={category.id}
-            className={`category__card ${selectedCategory === category.name ? "active" : ""} `}
+            className={`category__card ${selectedCategory === category.name ? "active" : ""}`}
             onClick={() => handleClick(category.name)}
           >
             <div className="category__image">
-              <img src={category.image} alt={category.name} />
+              {category.image ? (
+                <img src={category.image} alt={category.name} />
+              ) : (
+                <span className="category__all-icon">✦</span>
+              )}
             </div>
             <p className="category__name">{category.name}</p>
           </div>
