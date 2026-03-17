@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import clothes from "../../assets/cloths.webp";
+import all from "../../assets/all.webp";
 import watches from "../../assets/watches.webp";
 import bags from "../../assets/bags.webp";
 import shoes from "../../assets/shoes.webp";
@@ -10,7 +11,7 @@ import sports from "../../assets/sports.webp";
 import "../Category/Category.css";
 
 const allCategories = [
-  { id: 0, name: "All", image: null },
+  { id: 0, name: "All", image: all },
   { id: 1, name: "Clothes", image: clothes },
   { id: 2, name: "Watches", image: watches },
   { id: 3, name: "Bags", image: bags },
