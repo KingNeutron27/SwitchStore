@@ -5,7 +5,7 @@ import ProductCard from "./Ui/productCard/ProductCard"
 import '../components/Ui/productCard/productCard.css'
 import Button from "./Ui/button/Button"
 import Category from "./Category/Category"
-import ProductCardSkeleton from "../components/Ui/productCard/productSkeleton"
+import ProductCardSkeleton from "../components/Ui/productCard/ProductSkeleton"
 
 const categoryMap: Record<string, string> = {
   Clothes: "womens-dresses",
