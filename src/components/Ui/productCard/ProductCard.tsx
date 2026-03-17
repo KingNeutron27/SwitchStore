@@ -13,6 +13,9 @@ const getPrimaryImage = (images: string | string[]) => {
   return Array.isArray(images) ? images[0] ?? "" : images;
 };
 
+const formatCurrency = (amount: number, currency = "USD", locale = "en-US") =>
+  new Intl.NumberFormat(locale, { style: "currency", currency }).format(amount);
+
 const Stars: React.FC<{ value?: number }> = ({ value = 0 }) => {
   const v = Math.max(0, Math.min(5, value));
   const full = Math.floor(v);
@@ -25,9 +28,7 @@ const Stars: React.FC<{ value?: number }> = ({ value = 0 }) => {
         {Array.from({ length: full }).map((_, i) => (
           <span key={`full-${i}`} className="star filled">★</span>
         ))}
-        {half === 1 && (
-          <span className="star half">⯨</span>
-        )}
+        {half === 1 && <span className="star half">⯨</span>}
         {Array.from({ length: empty }).map((_, i) => (
           <span key={`empty-${i}`} className="star empty">★</span>
         ))}
@@ -67,7 +68,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
         <h3 className="product-title">{title}</h3>
         <p className="product-price">
           <strong>Price: </strong>
-          {price}
+          {formatCurrency(price)}
         </p>
         <div className="rating-container">
           <div className="product-rating-row">
@@ -78,10 +79,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
           </span>
         </div>
       </div>
+
       <div className="product-button">
         <Button text="View Details" />
       </div>
-      
     </div>
   );
 };
