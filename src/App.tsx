@@ -4,16 +4,12 @@ import Products from "./components/Products";import Navbar from "./components/Na
 
 function App() {
   return (
-  
     <>
       <Navbar />
       <Carousel />
-      
       <Products />
       <Footer />
-       
     </>
-   
   )
 }
 

@@ -3,6 +3,7 @@ import navImg from "../../assets/images/CreativeStore.png";
 import { useState } from "react";
 import Search from "../Search/Search";
 
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
@@ -57,7 +58,10 @@ const Navbar = () => {
           {/* Icons */}
           <div className="navbar-icons">
             <div className="">
+            
             <Search />
+
+
           </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
